@@ -1,0 +1,27 @@
+services:
+  redis:
+    container_name: redis
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    restart: always
+    networks:
+      - cosmic-dns-net
+
+  coredns:
+    container_name: coredns
+    image: coredns/redis:latest
+    volumes:
+      - "./:/etc/coredns/"
+    command: ["-conf", "/etc/coredns/Corefile"]
+    ports:
+      - "53:53/udp"
+      - "53:53/tcp"
+    restart: always
+    networks:
+      - cosmic-dns-net
+    depends_on:
+      - redis
+
+networks:
+  cosmic-dns-net:

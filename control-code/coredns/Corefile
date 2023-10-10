@@ -1,0 +1,15 @@
+.:53 {
+    forward . 8.8.8.8 1.1.1.1
+    log
+    errors
+    health
+}
+
+instantmc.gg.:53 {
+    log
+    errors
+    health
+    redis instantmc.gg {
+        address redis:6379
+    }
+}

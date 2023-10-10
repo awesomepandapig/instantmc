@@ -1,0 +1,27 @@
+@ IN SOA ns1.instantmc.gg. admin.instantmc.gg. (
+    2023100501 ; Serial
+    1h ; Refresh
+    15m ; Retry
+    4w ; Expire
+    1h ; Negative Cache TTL
+)
+
+@                               IN NS    ns1.instantmc.gg.
+@                               IN NS    ns2.instantmc.gg.
+ns1.instantmc.gg.               IN A     73.157.184.122
+ns2.instantmc.gg                IN A     73.157.184.122
+@                               IN A     73.157.184.122
+
+; UUID records
+;b509d6b4fdee.instantmc.gg.      IN A     73.157.184.122
+;_minecraft._tcp.b509d6b4fdee.instantmc.gg.   IN SRV   0 5 25565 b509d6b4fdee.instantmc.gg.
+;ea4a26d60b56.instantmc.gg.      IN A     73.157.184.122
+;_minecraft._tcp.ea4a26d60b56.instantmc.gg.   IN SRV   0 5 25566 ea4a26d60b56.instantmc.gg.
+
+9bbad10f64b5.instantmc.gg.                   IN A     73.157.184.122
+_minecraft._tcp.9bbad10f64b5.instantmc.gg.   IN SRV   0 5 25565 9bbad10f64b5.instantmc.gg.
+000ac6bb5a08.instantmc.gg.                   IN A     73.157.184.122
+_minecraft._tcp.000ac6bb5a08.instantmc.gg.   IN SRV   0 5 25566 000ac6bb5a08.instantmc.gg.
+73214b1193c7.instantmc.gg.                   IN A     73.157.184.122
+_minecraft._tcp.73214b1193c7.instantmc.gg.   IN SRV   0 5 25567 73214b1193c7.instantmc.gg.
+b509d6b4fdee.instantmc.gg.                   IN A     73.157.184.122
