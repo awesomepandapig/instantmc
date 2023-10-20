@@ -55,10 +55,6 @@ pub fn set_a(
 ) -> redis::RedisResult<()>{
     let key = format!("A/{}", target);
     let val = format!("{} IN A {}", ttl, ip.to_string());
-
-    println!("Key: {}", key);
-    println!("Value: {}", val);
-
     let client = redis::Client::open("redis://127.0.0.1/")?;
     let mut con = client.get_connection()?;
     let _: redis::RedisResult<()> = con.set(&key, &val);

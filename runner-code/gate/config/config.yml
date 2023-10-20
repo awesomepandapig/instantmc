@@ -1,0 +1,6 @@
+config:
+    lite:
+        enabled: true
+        routes:
+            - host: a873a1c1a999.instantmc.gg
+              backend: 127.0.0.1:25566

@@ -1,5 +1,4 @@
 mod minecraft_server;
-mod firewall;
 mod dns;
 use std::net::{IpAddr, Ipv4Addr};
 use std::time::Instant;
@@ -17,7 +16,7 @@ fn main() {
     let _ = dns::set_a("instantmc.gg.", "ns2.instantmc.gg.",300, IpAddr::V4(Ipv4Addr::new(73, 157, 184, 122)));
     let _ = dns::set_a("instantmc.gg.", "instantmc.gg", 300, IpAddr::V4(Ipv4Addr::new(73, 157, 184, 122)));*/
 
-    for i in 0..10 {
+    for i in 0..3 {
         let _server = minecraft_server::Server::new(Gamemode::Survival, Difficulty::Normal, WorldType::Normal, false, true, 500+i, port+i);
     }
     

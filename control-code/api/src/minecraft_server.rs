@@ -1,7 +1,6 @@
 use std::process::Command;
 use std::net::{IpAddr, Ipv4Addr};
 use crate::dns;
-use crate::firewall;
 
 #[derive(Debug)]
 // Define enums and Server struct
@@ -69,9 +68,17 @@ impl Server {
             port
         };
         server.print();
-        firewall::firewall_open(server.port);
         let _ = dns::set_a(format!("{}.{}.", server.uuid, "instantmc.gg").as_str(), 300, IpAddr::V4(Ipv4Addr::new(73, 157, 184, 122)));
-        //let _ = dns::set_srv("instantmc.gg.", format!("_minecraft._tcp.{}.{}.", server.uuid, "instantmc.gg").as_str(), 300, 0, 5, server.port);
+        
+        Command::new("curl")
+            .arg("-X")
+            .arg("POST")
+            .arg("-d")
+            .arg(format!("host={}.instantmc.gg&backend=127.0.0.1:{}", server.uuid, server.port))
+            .arg("http://127.0.0.1:8080/createhost")
+            .output()
+            .expect("Failed to execute command");
+
         server
     }
 
